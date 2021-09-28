@@ -1,0 +1,191 @@
+/*Stopped at 39:13*/
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Lato&display=swap');
+:root {
+    --vertical-spacing: 2rem;
+    --horizontal-spacing: 3rem;
+    --light-color: rgba(73, 72, 70, 1); /*494846*/
+    --body-color: rgba(232, 231, 219, 1); /*E8E8DB*/
+    --heading-color: rgba(255, 223, 100, 1); /*FFDF65*/
+    --subheading-color: rgba(255, 223, 100, 1);
+    --contrast-color: rgba(224, 196, 245, 96); /*#E0C4F5 obtained randomly*/
+}
+/* Color Theme Swatches in RGBA */
+/*Obtained colors as Gym Shoes by naomi vu*/
+/* Color Theme Swatches in RGBA 
+.Gym-Shoes-1-rgba { color: rgba(232, 231, 219, 1); }
+.Gym-Shoes-2-rgba { color: rgba(255, 223, 100, 1); }
+.Gym-Shoes-3-rgba { color: rgba(132, 130, 119, 1); }
+.Gym-Shoes-4-rgba { color: rgba(99, 96, 87, 1); }
+.Gym-Shoes-5-rgba { color: rgba(73, 72, 70, 1); }*/
+/* No .nav yet */
+/* .nav {
+    background-color: var(--light-color);
+} */
+
+body {
+    display: grid;
+    grid-template-areas: "head head"
+                        "nav nav"
+                        "main main"
+                        "foot foot ";
+    grid-template-columns: auto 4fr;
+    grid-template-rows: auto auto 1fr auto;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Lato', sans-serif;
+    color: var(--body-color);
+    background-color: var(--light-color);
+}
+/* Could uncomment this if I wanted */
+/* @media screen and (min-width: 23.4em) {
+    body {
+        grid-template-areas: "head head"
+                            "nav main"
+                            "foot foot ";
+        grid-template-rows: auto 1fr auto;
+    }
+} */
+/* Re-attempt */
+@media screen and (min-width: 35em) {
+    body {
+    grid-template-areas: "head nav"
+                        "main main"
+                        "foot foot ";
+    grid-template-rows: auto 1fr auto;
+    }
+    body > nav {
+        padding-top: var(--vertical-spacing)
+    }
+    body nav ul {
+        float: right;
+    }
+}
+
+/* All direct children of the body */
+body > * {
+    padding-left: var(--horizontal-spacing);
+    padding-right: var(--horizontal-spacing);
+}
+/* at 7:12 */
+body > header {
+    grid-area: head;
+}
+body > nav {
+    grid-area: nav;
+}
+
+body > main > *:first-child:before { /*could have stopped at :first-child*/
+    content: "";
+    display: block;
+    border-top: 2px solid var(--subheading-color);
+    padding-top: var(--vertical-spacing);
+}
+
+body > nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+/*Could comment this out*/
+body > nav ul li {
+    display: inline-block;
+    padding-right: 1rem; /*But recomment this*/
+    line-height: 2.4em;
+}
+
+body > main {
+    grid-area: main;
+}
+body > footer {
+    grid-area: foot;
+}
+
+header, footer {
+    padding-top: var(--vertical-spacing);
+    padding-bottom: var(--vertical-spacing);
+}
+
+header {
+    padding-bottom: 0;
+}
+
+header h1, footer h1 {
+    margin: 0;
+}
+
+body#about img {
+    height: 15em;
+    display: inline;
+    max-width: 115%;
+    /* I think it looks best with no bottom spacing */
+}
+
+@media screen and (min-width: 35em) {
+    body#about img {
+        float: left;
+        margin-right: var(--horizontal-spacing);
+        /* I think it looks best with no bottom spacing */
+    }  
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    font-family: 'Delius', cursive;
+}
+
+h1 {
+    color: var(--heading-color);
+}
+
+h2, h3 {
+    color: var(--subheading-color);
+}
+
+a {
+    color: var(--body-color);
+    text-decoration-color: var(--contrast-color);
+}
+
+a:hover {
+    color: var(--contrast-color);
+}
+
+body > main > p, body > main h1{
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+body {
+    max-width: 50rem;
+}
+
+body#portfolio ul#portfolioItems {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+}
+
+@media screen and (min-width: 35em){
+    body#portfolio ul#portfolioItems li {
+        flex-basis: 48%;
+        padding-right: 2%;
+    }    
+}
+
+body#portfolio ul#portfolioItems li img {
+    max-width: 100%;
+}
+
+#toTopButton {
+    position: fixed;
+    display: none;
+    bottom: var(--vertical-spacing);
+    right: var(--horizontal-spacing);
+    color: var(--body-color);
+    background-color: var(--light-color);
+    border-color: var(--contrast-color);
+}
+#toTopButton:hover {
+    color: var(--heading-color);
+}
